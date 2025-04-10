@@ -101,4 +101,6 @@ mirtech-test/
 └── README.md
 ```
 
+### 🌐 Live Demo
 
+- **Demo Video:** [YouTube](https://youtu.be/HLvgshAyHHo)

@@ -36,7 +36,7 @@ export default function TransactionDetailPage() {
     async function fetchTransaction() {
       try {
         setLoading(true);
-        const res = await axios.get(`http://localhost:8000/api/v1/orders/${id}`);
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/orders/${id}`);
         setTransaction(res.data);
       } catch (err) {
         setError("Failed to fetch transaction details");
