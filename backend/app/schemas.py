@@ -33,6 +33,10 @@ class User(UserBase):
     class Config:
         orm_mode = True
 
+class UserListResponse(BaseModel):
+    items: List[User]
+    total: int
+    
 # -- Order Schemas --
 class OrderBase(BaseModel):
     user_id: int
@@ -47,11 +51,19 @@ class OrderWithUsername(BaseModel):
 class OrderCreate(OrderBase):
     pass
 
-class Order(OrderBase):
+class Order(BaseModel):
     id: int
+    user_id: int
+    username: str | None  # ✅ Add this
+    created_at: str       # or datetime if preferred
 
     class Config:
         orm_mode = True
+
+
+class OrderListResponse(BaseModel):
+    items: List[Order]
+    total: int
 
 # -- Transaction Schemas --
 class TransactionBase(BaseModel):
