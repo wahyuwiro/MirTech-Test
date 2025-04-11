@@ -34,17 +34,28 @@ This will:
 - Launch the FastAPI backend on http://localhost:8000
 - Launch the Next.js frontend on http://localhost:3000
 
-### 3. Backend: FastAPI
-✅ Features:
-- High-speed filtering, pagination, and sorting (sub-100ms)
-- Caching with Redis
-- Seed data generation for:
+### 🗃️ Initialize Database & Seed Data
+After starting the containers, initialize the DB schema and seed it with mock data:
+```bash
+docker-compose run backend python create_db.py
+docker-compose run backend python app/db/seed.py
+```
+These scripts will:
+- Create the database schema (tables, relationships)
+- Seed with:
    - 100,000 Products
    - 1,000 Users
    - 10,000 Orders
    - 50,000 Transactions
+
+### 🔧 Backend: FastAPI
+✅ Features:
+- High-speed filtering, pagination, and sorting (sub-100ms)
+- Caching with Redis
+- Robust relational models
+
  
-### 4. Frontend: Next.js (TypeScript)
+### 💻 Frontend: Next.js (TypeScript)
 ✅ Features:
 - Products table with server data (via Axios)
 - Pagination
